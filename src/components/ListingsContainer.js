@@ -12,11 +12,29 @@ function ListingsContainer() {
       });
   }, []);
 
+  // function handleDeleteListing(id) {
+  //   const updatedListingArray = listings.filter((listing) => listing.id !== id);
+  //   setListings(updatedListingArray);
+  // }
+  // fetch(`http://localhost:6001/listings/${id}`, {
+  //   method: "DELETE",
+  // })
+  //   .then((r) => r.json())
+  //   .then(() => {
+  //     onDeleteListing(id);
+  //   });
+
   return (
     <main>
       <ul className="cards">
         {listings.map((listing) => {
-          return <ListingCard key={listing.id} listing={listing} />;
+          return (
+            <ListingCard
+              key={listing.id}
+              listing={listing}
+              onDeleteListing={handleDeleteListing}
+            />
+          );
         })}
       </ul>
     </main>
